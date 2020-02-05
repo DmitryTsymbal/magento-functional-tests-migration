@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="AdminHttpsHeadersDisableTest">
+        <annotations>
+            <features value="Backend"/>
+            <stories value="Disable Https Headers"/>
+            <title value="Admin should be able to disable Https Headers"/>
+            <description value="Admin should be able to disable Https Headers in Magento Admin backend"/>
+            <group value="backend"/>
+            <group value="mtf_migrated"/>
+        </annotations>
+
+        <before>
+            <actionGroup ref="LoginAsAdmin" stepKey="LoginAsAdmin"/>
+        </before>
+        <after>
+            <actionGroup ref="logout" stepKey="logout"/>
+        </after>
+
+        <!-- TEST BODY -->
+        <actionGroup ref="AdminStoresConfigurationSetSecureURLsActionGroup" stepKey="setOptions">
+            <argument name="storeFrontDropdown" value="Yes"/>
+            <argument name="adminDropDown" value="No"/>
+        </actionGroup>
+        <actionGroup ref="AssertAdminHttpsHeaderOptionsNotAvailableActionGroup" stepKey="assertNoOptions"/>
+    </test>
+</tests>

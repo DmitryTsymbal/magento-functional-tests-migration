@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="AdminStoresConfigurationSetSecureURLsActionGroup">
+        <arguments>
+            <argument name="storeFrontDropdown" type="string" defaultValue="No"/>
+            <argument name="adminDropDown" type="string" defaultValue="No"/>
+        </arguments>
+
+        <amOnPage url="{{WebConfigurationPage.url}}" stepKey="navigateToWebConfigurationPage"/>
+        <conditionalClick selector="{{WebSection.DefaultLayoutsTab}}" dependentSelector="{{WebSection.CheckIfTabExpand}}" visible="true" stepKey="clickSecureConfigTab"/>
+        <waitForElementVisible selector="{{WebSection.secureURLStorefront}}" stepKey="waitForOption"/>
+        <selectOption selector="{{WebSection.secureURLStorefront}}" userInput="{{storeFrontDropdown}}" stepKey="setStoreFrontValue"/>
+        <selectOption selector="{{WebSection.secureURLAdmin}}" userInput="{{adminDropDown}}" stepKey="setAdminValue"/>
+        <click stepKey="saveConfig" selector="{{StoreConfigSection.Save}}"/>
+    </actionGroup>
+</actionGroups>

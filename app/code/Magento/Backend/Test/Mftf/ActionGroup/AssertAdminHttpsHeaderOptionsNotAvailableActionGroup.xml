@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="AssertAdminHttpsHeaderOptionsNotAvailableActionGroup">
+
+        <dontSeeElement selector="{{WebSection.hstsDropdown}}" stepKey="dontSeeOption1"/>
+        <dontSeeElement selector="{{WebSection.upgradeInsecureRequests}}" stepKey="dontSeeOption2"/>
+    </actionGroup>
+</actionGroups>

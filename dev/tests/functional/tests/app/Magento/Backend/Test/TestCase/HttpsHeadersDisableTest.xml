@@ -11,6 +11,7 @@
             <data name="httpsConfig/dataset" xsi:type="string">enable_https_frontend_only</data>
             <data name="hsts/dataset" xsi:type="string">enable_hsts</data>
             <data name="upgradeInsecure/dataset" xsi:type="string">enable_upgrade_insecure</data>
+            <data name="tag" xsi:type="string">mftf_migrated:yes</data>
             <constraint name="Magento\Backend\Test\Constraint\AssertHttpsHeaderOptionsNotAvailable"/>
         </variation>
     </testCase>

@@ -24,6 +24,10 @@
         <element name="CheckIfTabExpand" type="button" selector="#web_default_layouts-head:not(.open)"/>
         <element name="UrlOptionsTab" type="button" selector="#web_url-head"/>
         <element name="CheckIfUrlOptionsTabExpand" type="button" selector="#web_url-head:not(.open)"/>
+        <element name="secureURLStorefront" type="select" selector="#web_secure_use_in_frontend"/>
+        <element name="secureURLAdmin" type="select" selector="#web_secure_use_in_adminhtml"/>
+        <element name="hstsDropdown" type="select" selector="#web_secure_enable_hsts"/>
+        <element name="upgradeInsecureRequests" type="select" selector="#web_secure_enable_upgrade_insecure"/>
     </section>
     <section name="DefaultLayoutsSection">
         <element name="productLayout" type="select" selector="#web_default_layouts_default_product_layout"/>
