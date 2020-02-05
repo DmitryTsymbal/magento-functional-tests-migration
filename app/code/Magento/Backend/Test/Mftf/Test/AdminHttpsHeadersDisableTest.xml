@@ -20,16 +20,17 @@
 
         <before>
             <actionGroup ref="LoginAsAdmin" stepKey="LoginAsAdmin"/>
+            <magentoCLI stepKey="setSecureUrlsOnStoreFront" command="config:set web/secure/use_in_frontend Yes"/>
+            <magentoCLI stepKey="setSecureUrlsOnAdmin" command="config:set web/secure/use_in_adminhtml No"/>
+            <magentoCLI stepKey="cacheFlush" command="cache:flush"/>
         </before>
         <after>
+            <magentoCLI stepKey="DisableSecureUrlsOnStoreFront" command="config:set web/secure/use_in_frontend No"/>
+            <magentoCLI stepKey="cacheFlush" command="cache:flush"/>
             <actionGroup ref="logout" stepKey="logout"/>
         </after>
 
         <!-- TEST BODY -->
-        <actionGroup ref="AdminStoresConfigurationSetSecureURLsActionGroup" stepKey="setOptions">
-            <argument name="storeFrontDropdown" value="Yes"/>
-            <argument name="adminDropDown" value="No"/>
-        </actionGroup>
         <actionGroup ref="AssertAdminHttpsHeaderOptionsNotAvailableActionGroup" stepKey="assertNoOptions"/>
     </test>
 </tests>

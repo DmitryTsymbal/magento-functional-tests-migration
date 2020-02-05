@@ -10,6 +10,9 @@
               xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
     <actionGroup name="AssertAdminHttpsHeaderOptionsNotAvailableActionGroup">
 
+        <amOnPage url="{{WebConfigurationPage.url}}" stepKey="navigateToWebConfigurationPage"/>
+        <conditionalClick selector="{{WebSection.DefaultLayoutsTab}}" dependentSelector="{{WebSection.CheckIfTabExpand}}" visible="true" stepKey="clickSecureConfigTab"/>
+        <waitForElementVisible selector="{{WebSection.secureURLStorefront}}" stepKey="waitForOption"/>
         <dontSeeElement selector="{{WebSection.hstsDropdown}}" stepKey="dontSeeOption1"/>
         <dontSeeElement selector="{{WebSection.upgradeInsecureRequests}}" stepKey="dontSeeOption2"/>
     </actionGroup>
